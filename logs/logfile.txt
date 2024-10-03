@@ -1,0 +1,30 @@
+[2024-08-02 15:23:58.444] [file_logger] [info] Executing command
+[2024-08-02 15:23:58.444] [file_logger] [info] Сообщение не найдено
+[2024-08-02 15:23:58.444] [file_logger] [info] Сообщение не найдено
+[2024-08-02 15:23:58.444] [file_logger] [error] Connection failed
+[2024-08-02 15:23:58.444] [file_logger] [info] Сообщение не найдено
+[2024-08-02 15:23:58.444] [file_logger] [error] Database connection failed
+[2024-08-02 15:23:58.444] [file_logger] [info] Сообщение не найдено
+[2024-08-02 15:23:58.444] [file_logger] [error] Error executing command: 'CREATE TABLE IF NOT EXISTS groups (id SERIAL PRIMARY KEY, group_name VARCHAR(100) NOT NULL);'. Error: connection pointer is NULL
+
+[2024-08-02 15:23:58.444] [file_logger] [error] Exception caught: Error executing command
+[2024-08-02 15:26:14.851] [file_logger] [info] Executing command
+[2024-08-02 15:26:14.851] [file_logger] [info] Выполнение команды...
+[2024-08-02 15:26:14.934] [file_logger] [info] Database connected successfully
+[2024-08-02 15:26:14.949] [file_logger] [info] Successfully executed command: 'CREATE TABLE IF NOT EXISTS groups (id SERIAL PRIMARY KEY, group_name VARCHAR(100) NOT NULL);'
+[2024-08-02 15:26:14.949] [file_logger] [info] Table 'groups' created or already exists.
+[2024-08-02 15:26:14.950] [file_logger] [info] Successfully executed command: 'CREATE TABLE IF NOT EXISTS participants (id SERIAL PRIMARY KEY, first_name VARCHAR(100), last_name VARCHAR(100), year_of_birth VARCHAR(100), UNIQUE(first_name, last_name, year_of_birth));'
+[2024-08-02 15:26:14.950] [file_logger] [info] Table 'participants' created or already exists.
+[2024-08-02 15:26:14.950] [file_logger] [info] Successfully executed command: 'CREATE TABLE IF NOT EXISTS participant_groups (participant_id INTEGER, group_id INTEGER, FOREIGN KEY (participant_id) REFERENCES participants(id) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE ON UPDATE CASCADE, PRIMARY KEY (participant_id, group_id));'
+[2024-08-02 15:26:14.950] [file_logger] [info] Table 'participant_groups' created or already exists.
+[2024-08-02 15:26:14.950] [file_logger] [info] Successfully executed command: 'CREATE TABLE IF NOT EXISTS results (id SERIAL PRIMARY KEY, discipline VARCHAR(100), participant_id INTEGER, result INTEGER, FOREIGN KEY (participant_id) REFERENCES participants(id) ON DELETE CASCADE ON UPDATE CASCADE, UNIQUE(discipline, participant_id));'
+[2024-08-02 15:26:14.950] [file_logger] [info] Table 'results' created or already exists.
+[2024-08-02 15:26:14.950] [file_logger] [info] Database tables created
+[2024-08-02 15:26:14.950] [file_logger] [info] Converting string to operation: retrieveGroup
+[2024-08-02 15:26:14.988] [file_logger] [info] Fetched group data for group ID: 1
+[2024-08-02 15:26:14.988] [file_logger] [info] Группа номер: 
+[2024-08-02 15:26:14.988] [file_logger] [info] Год рождения: 
+[2024-08-02 15:26:14.989] [file_logger] [info] Printed group ID: 1
+[2024-08-02 15:26:14.989] [file_logger] [info] Retrieved group ID: 1
+[2024-08-02 15:26:14.989] [file_logger] [info] Retrieved group number: 1
+[2024-08-02 15:26:14.989] [file_logger] [info] Database connection closed
